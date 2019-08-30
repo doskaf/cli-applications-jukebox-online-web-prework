@@ -46,6 +46,7 @@ def prompt()
 end
 
 def run(songs)
+  user_input = prompt()
   
   puts "Please enter a command:"
   user_input = gets.strip
