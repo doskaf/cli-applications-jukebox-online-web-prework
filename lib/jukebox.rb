@@ -38,13 +38,8 @@ def exit_jukebox
   puts "Goodbye"
 end
 
-def prompt
-  puts "Please enter a command:"
-  gets.strip
-end
-
 def run(songs)
-  prompt
+  puts "Please enter a command:"
   user_input = gets.strip
   while user_input != "exit"
   if user_input.to_s == "help"
