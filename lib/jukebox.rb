@@ -50,7 +50,7 @@ def run(songs)
     puts "Please enter a command:"
     user_input = gets.strip
   elsif user_input.to_s == "play"
-    play
+    play(songs)
     user_input = gets.strip
   end
   end
