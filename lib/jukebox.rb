@@ -19,9 +19,7 @@ def help
 end
 
 def list(songs)
-  songs.each_with_index do |song, index|
-  puts "#{index + 1}. #{song}"
-  end
+  songs.each_with_index {|item, i| puts "#{i + 1}. #{item}"}
 end
 
 def play(songs)
@@ -40,22 +38,16 @@ def exit_jukebox
   puts "Goodbye"
 end
 
-def prompt()
-  puts "Please enter a command:"
-  gets.strip()
-end
-
 def run(songs)
-  user_input = prompt()
   puts "Please enter a command:"
-  
+  user_input = gets.strip
   while user_input != "exit"
   if user_input.to_s == "help"
     help
-    user_input = prompt()
+    user_input = gets.strip
   elsif user_input.to_s == "list"
     list()
-    user_input = prompt()
+    user_input = gets.strip
   elsif user_input.to_s == "play"
     play
     user_input = gets.strip
