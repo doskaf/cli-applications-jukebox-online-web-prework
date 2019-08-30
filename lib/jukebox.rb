@@ -47,6 +47,7 @@ def run(songs)
     user_input = gets.strip
   elsif user_input.to_s == "list"
     list()
+    user_input = gets.strip
   elsif user_input.to_s == "play"
     play
     user_input = gets.strip
