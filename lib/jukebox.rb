@@ -51,7 +51,6 @@ def run(songs)
     user_input = gets.strip
   elsif user_input.to_s == "play"
     play
-    puts "Please enter a song name or number:"
     user_input = gets.strip
   end
   end
