@@ -46,7 +46,7 @@ def run(songs)
     help
     user_input = gets.strip
   elsif user_input.to_s == "list"
-    list
+    list(songs)
     puts "Please enter a command:"
     user_input = gets.strip
   elsif user_input.to_s == "play"
