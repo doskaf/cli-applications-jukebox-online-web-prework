@@ -42,7 +42,7 @@ end
 
 def prompt()
   puts "Please enter a command:"
-  gets.strip
+  gets.strip()
 end
 
 def run(songs)
