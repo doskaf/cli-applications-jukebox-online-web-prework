@@ -10,50 +10,65 @@ songs = [
   "Amos Lee - Keep It Loose, Keep It Tight"
 ]
 
+
+
 def help
-  puts "I accept the following commands:"
-  puts "- help : displays this help message"
-  puts "- list : displays a list of songs you can play"
-  puts "- play : lets you choose a song to play"
-  puts "- exit : exits this program"
+  help = <<-HELP
+I accept the following commands:
+- help : displays this help message
+- list : displays a list of songs you can play
+- play : lets you choose a song to play
+- exit : exits this program
+HELP
+
+  puts help
 end
 
-def list(songs)
-  songs.each_with_index {|item, i| puts "#{i + 1}. #{item}"}
-end
+
+def list(songs) 
+  songs.each_with_index { |item, index|
+    puts "#{index+1}. #{item}" }
+end 
+
 
 def play(songs)
   puts "Please enter a song name or number:"
-  user_input = gets.strip
-  if (1..9).to_a.index(user_input.to_i) != nil
-    puts "Playing #{songs[user_input.to_i - 1]}"
-  elsif songs.index(user_input) != nil
-    puts "Playing #{user_input}"
-  else
+  user_response = gets.downcase.chomp 
+  
+  if (1..9).to_a.include?(user_response.to_i)
+    puts "Playing #{songs[user_response.to_i - 1]}"
+    elsif songs.include?(user_response)
+    puts "Playing #{user_response}"
+  else 
     puts "Invalid input, please try again"
-  end
-end
+  end 
+end 
+
 
 def exit_jukebox
   puts "Goodbye"
-end
+end 
 
 def run(songs)
+  #help
+  command = "" 
+  while command  
   puts "Please enter a command:"
-  user_input = gets.strip
-  while user_input != "exit"
-  if user_input.to_s == "help"
-    help
-    user_input = gets.strip
-  elsif user_input.to_s == "list"
-    list()
-    puts "Please enter a command:"
-    user_input = gets.strip
-  elsif user_input.to_s == "play"
-    play
-    user_input = gets.strip
-  end
-  end
-  exit_jukebox()
-end
+  command = gets.downcase.strip  
+  case command 
+    when 'list'
+      list(songs)
+      when 'play'
+        list(songs)
+        play(songs)
+      when 'help'
+        help 
+      when 'exit'
+        exit_jukebox
+        break 
+      else 
+        help 
+      end 
+    end 
+  end 
   
