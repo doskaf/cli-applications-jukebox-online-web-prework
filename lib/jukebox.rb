@@ -52,10 +52,10 @@ def run(songs)
   while user_input != "exit"
   if user_input.to_s == "help"
     help
-    user_input = gets.strip
+    user_input = prompt()
   elsif user_input.to_s == "list"
-    list
-    user_input = gets.strip
+    list()
+    user_input = prompt()
   elsif user_input.to_s == "play"
     play
     user_input = gets.strip
